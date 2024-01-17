@@ -37,9 +37,9 @@
             </div>
             <div class="form-group">
                 <label asp-for="Cover" class="form-label mt-4"></label>
-                <input type="file"  class="form-control" asp-for="Cover"
+                <input type="file" id="Cover" class="form-control" asp-for="Cover"
                  data-rule-extension="@FileSettings.AllowedExtensions.Replace(".",string.Empty)"
-                 data-msg-extension="Please Enter a Valied Extension" >
+                 data-msg-extension="Not Allowed Extenion">
                 <small class="form-text text-muted">Only @FileSettings.AllowedExtensions files are allowed with max size @FileSettings.MaxFileSizeInMB  MB.</small>
                 <span asp-validation-for="Cover" class="text-danger d-block"></span>
             </div>
@@ -52,4 +52,12 @@
 </form>
 @section Scripts{
     <partial name="_ValidationScriptsPartial" />
+    <script>
+        $(document).ready(function () {
+            $("#Cover").on("change", function () {
+                $(".cover-preview").attr('src', window.URL.createObjectURL(this.files[0])).removeClass("d-none");
+            });
+        });
+
+    </script>
 }
