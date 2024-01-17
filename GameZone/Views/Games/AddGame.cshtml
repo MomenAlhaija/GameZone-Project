@@ -17,8 +17,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="CategoryId" class="form-label mt-4"></label>
-                <select class="form-select" asp-for="CategoryId" asp-items="Model.Categories"
-                        data-placeholder="Select a category" data-minimum-results-for-search="Infinity">
+                <select class="form-select" asp-for="CategoryId" asp-items="Model.Categories" data-placeholder="Select a category" data-minimum-results-for-search="Infinity"  >
                     <option value=""></option>
                 </select>
                 <span asp-validation-for="CategoryId" class="text-danger"></span>
@@ -38,7 +37,9 @@
             </div>
             <div class="form-group">
                 <label asp-for="Cover" class="form-label mt-4"></label>
-                <input type="file" class="form-control" asp-for="Cover">
+                <input type="file"  class="form-control" asp-for="Cover"
+                 data-rule-extension="@FileSettings.AllowedExtensions.Replace(".",string.Empty)"
+                 data-msg-extension="Please Enter a Valied Extension" >
                 <small class="form-text text-muted">Only @FileSettings.AllowedExtensions files are allowed with max size @FileSettings.MaxFileSizeInMB  MB.</small>
                 <span asp-validation-for="Cover" class="text-danger d-block"></span>
             </div>
@@ -49,3 +50,6 @@
         </div>
     </div>
 </form>
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
