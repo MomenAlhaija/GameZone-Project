@@ -1,4 +1,5 @@
 ﻿using GameZone.Models;
+using GameZone.Settings;
 
 namespace GameZone.Services
 {
@@ -11,7 +12,7 @@ namespace GameZone.Services
         {
             _context = context;
             _webHostEnvironment = webHostEnvironment;
-            _imagePath = $"{_webHostEnvironment.WebRootPath}/assets/images/games";
+            _imagePath = $"{_webHostEnvironment.WebRootPath}{FileSetting.FilePath}";
         }
         public async Task GreateGame(CreateGameFormViewModel input)
         {
