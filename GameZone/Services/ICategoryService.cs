@@ -1,4 +1,6 @@
-﻿namespace GameZone.Services
+﻿using GameZone.Models;
+
+namespace GameZone.Services
 {
     public interface ICategoryService
     {

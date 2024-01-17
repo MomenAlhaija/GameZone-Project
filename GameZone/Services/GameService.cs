@@ -14,6 +14,16 @@ namespace GameZone.Services
             _webHostEnvironment = webHostEnvironment;
             _imagePath = $"{_webHostEnvironment.WebRootPath}{FileSettings.FilePath}";
         }
+
+        public IEnumerable<Game> GetGames()
+        {
+            return _context.Games.
+                Include(c=>c.Category).
+                Include(c=>c.Devices).
+                ThenInclude(c=>c.Device)
+                .AsNoTracking().ToList();
+        }
+
         public async Task GreateGame(CreateGameFormViewModel input)
         {
             var coverName = $"{Guid.NewGuid()}{Path.GetExtension(input.Cover.FileName)}";
@@ -30,6 +40,7 @@ namespace GameZone.Services
                 Devices=input.SelectedDevices.Select(d=>new GameDevice { DeviceId=d}).ToList()
             };
             _context.Add(game);
+            _context.SaveChanges();
         }
     }
 }
