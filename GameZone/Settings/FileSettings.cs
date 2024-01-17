@@ -1,6 +1,6 @@
 ﻿namespace GameZone.Settings
 {
-    public static class FileSetting
+    public static class FileSettings
     {
         public const string FilePath = "/assets/images/games";
         public const string AllowedExtensions = ".jpg,.jpeg,.png";

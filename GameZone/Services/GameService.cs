@@ -12,7 +12,7 @@ namespace GameZone.Services
         {
             _context = context;
             _webHostEnvironment = webHostEnvironment;
-            _imagePath = $"{_webHostEnvironment.WebRootPath}{FileSetting.FilePath}";
+            _imagePath = $"{_webHostEnvironment.WebRootPath}{FileSettings.FilePath}";
         }
         public async Task GreateGame(CreateGameFormViewModel input)
         {

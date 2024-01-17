@@ -1,13 +1,12 @@
 ﻿using GameZone.Attributes;
-using GameZone.Consts;
 using GameZone.Settings;
-using System.ComponentModel.DataAnnotations;
 
 namespace GameZone.ViewModel
 {
     public class CreateGameFormViewModel:GameFormModel
     {
-        [AllowedExtension(FileSetting.AllowedExtensions)]
+        [AllowedExtension(FileSettings.AllowedExtensions)]
+        [MaxFileSize(FileSettings.MaxFileSizeInBytes)]
         public IFormFile Cover { get; set; } = default!;
     }
 }

@@ -18,7 +18,7 @@ namespace GameZone.Attributes
                 var extension=Path.GetExtension(file.FileName);
                 if(!_allowedExtensions.Split(',').Contains(extension, StringComparer.OrdinalIgnoreCase))
                 {
-                    return new ValidationResult($"Only {FileSetting.AllowedExtensions} are allowed");
+                    return new ValidationResult($"Only {_allowedExtensions} are allowed");
                 }
             }
             return ValidationResult.Success;
