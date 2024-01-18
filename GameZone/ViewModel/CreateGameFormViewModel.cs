@@ -3,7 +3,7 @@ using GameZone.Settings;
 
 namespace GameZone.ViewModel
 {
-    public class CreateGameFormViewModel:GameFormModel
+    public class CreateGameFormViewModel:GameFormViewModel
     {
         [AllowedExtension(FileSettings.AllowedExtensions)]
         [MaxFileSize(FileSettings.MaxFileSizeInBytes)]

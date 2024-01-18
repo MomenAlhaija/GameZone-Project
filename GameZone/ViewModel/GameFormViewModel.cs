@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace GameZone.ViewModel
 {
-    public class GameFormModel
+    public class GameFormViewModel
     {
         [MaxLength(GameZoneConsts.MaxNameLength)]
         public string Name { get; set; } = string.Empty;
@@ -14,8 +14,6 @@ namespace GameZone.ViewModel
         [Display(Name = "Support Devices")]
         public List<int> SelectedDevices { get; set; } = default!;
         public IEnumerable<SelectListItem> Devices { get; set; } = Enumerable.Empty<SelectListItem>();
-
-
         [MaxLength(GameZoneConsts.MaxGameDescriptionLength)]
         public string Description { get; set; } = string.Empty;
 

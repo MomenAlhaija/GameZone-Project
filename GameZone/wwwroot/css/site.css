@@ -79,7 +79,7 @@ body {
 
 /* Start Override SweetAlert2 */
 .swal2-title, .swal2-html-container {
-    color: #fff !important;
+    color: black !important;
 }
 
 div:where(.swal2-container) div:where(.swal2-popup) {
